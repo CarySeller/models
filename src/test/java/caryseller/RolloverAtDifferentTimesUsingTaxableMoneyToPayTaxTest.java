@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RolloverAtDifferentTimesWithNoTaxableMoneyAvailableToPayTaxTest {
+public class RolloverAtDifferentTimesUsingTaxableMoneyToPayTaxTest {
     @Test
     void Test() {
         String[] args = {"23"}; // avg of 22 and 24
-        RolloverAtDifferentTimesWithNoTaxableMoneyAvailableToPayTax.main(args);
+        RolloverAtDifferentTimesUsingTaxableMoneyToPayTax.main(args);
         assertTrue(true);
     }
 

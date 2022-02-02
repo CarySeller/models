@@ -24,24 +24,24 @@ public class RolloverAtDifferentTimesWithNoTaxableMoneyAvailableToPayTax {
             rothBal += YEARLY_WITHDRAWAL_AFTER_TAXES;
             double planAfterTaxValue = planBal * (1-cashoutMarginalTaxRate);
 
-            System.out.printf("After year %2d:   Balance in reg 401K: %.2f, Balance in Roth 401K: %.2f, Total after tax value: %.2f%n", i, planBal, rothBal, planAfterTaxValue + rothBal);
+            System.out.printf("After year %2d:  Balance in reg 401K: %.2f, Balance in Roth 401K: %.2f, Total after tax value: %.2f%n", i, planBal, rothBal, planAfterTaxValue + rothBal);
         }
 
-        System.out.printf("%nRollover all right at the start: move all to Roth after paying taxes and then compound over 10 years:%n");
+        System.out.printf("%nRollover all right at the start: move all to Roth after paying taxes and then compound over %d years:%n", N);
         // Rollover all right at the start: move all to Roth after paying taxes and then compound over 10 years
         rothBal = STARTING_BALANCE * (1-cashoutMarginalTaxRate);
         for (int i = 1; i <= N; i++) {
             rothBal *= (1.0 + ROI);
-            System.out.printf("After year %2d:   Balance in Roth 401K: %.2f%n", i, rothBal);
+            System.out.printf("After year %2d:  Balance in Roth 401K: %.2f%n", i, rothBal);
         }
 
-        System.out.printf("%nCompound in the regular for 10 years and then rollover all at the end:%n");
-        // Rollover all right at the start: move all to Roth after paying taxes and then compound over 10 years
+        System.out.printf("%nCompound in the regular for %d years and then rollover all at the end:%n", N);
+        // Compound in the regular for 10 years and then rollover all at the end
         planBal = STARTING_BALANCE;
         for (int i = 1; i <= N; i++) {
             planBal *= (1.0 + ROI);
             double planAfterTaxValue = planBal * (1-cashoutMarginalTaxRate);
-            System.out.printf("After year %2d:   After tax value: %.2f%n", i, planAfterTaxValue);
+            System.out.printf("After year %2d:  After tax value: %.2f%n", i, planAfterTaxValue);
         }
 
     }
