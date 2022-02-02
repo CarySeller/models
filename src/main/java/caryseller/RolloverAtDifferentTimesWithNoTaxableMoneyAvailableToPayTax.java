@@ -10,8 +10,8 @@ public class RolloverAtDifferentTimesWithNoTaxableMoneyAvailableToPayTax {
         double widTR = Double.parseDouble(args[0]);
         double cashoutMarginalTaxRate = (widTR + STATE_TAX_RATE) / 100;
         double STARTING_BALANCE = 1000000;
-        double YEARLY_WITHDRAWAL = 100000;
-        double YEARLY_WITHDRAWAL_AFTER_TAXES = YEARLY_WITHDRAWAL * (1-cashoutMarginalTaxRate);
+        double YEARLY_ROLLOVER = 100000;
+        double YEARLY_ROLLOVER_AFTER_TAXES = YEARLY_ROLLOVER * (1-cashoutMarginalTaxRate);
         double planBal = STARTING_BALANCE; // the balance in the regular 401k plan
         double rothBal = 0; // the balance in the Roth 401k plan
         double ROI = .05;
@@ -20,8 +20,8 @@ public class RolloverAtDifferentTimesWithNoTaxableMoneyAvailableToPayTax {
             // after year i, assuming withdrawal at the end of the year and tax paid at the same time
             planBal *= (1.0 + ROI);
             rothBal *= (1.0 + ROI);
-            planBal -= YEARLY_WITHDRAWAL;
-            rothBal += YEARLY_WITHDRAWAL_AFTER_TAXES;
+            planBal -= YEARLY_ROLLOVER;
+            rothBal += YEARLY_ROLLOVER_AFTER_TAXES;
             double planAfterTaxValue = planBal * (1-cashoutMarginalTaxRate);
 
             System.out.printf("After year %2d:  Balance in reg 401K: %.2f, Balance in Roth 401K: %.2f, Total after tax value: %.2f%n", i, planBal, rothBal, planAfterTaxValue + rothBal);
